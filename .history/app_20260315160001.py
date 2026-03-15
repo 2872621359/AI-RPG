@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory
-import os
 
 app = Flask(__name__)
 
@@ -84,7 +83,12 @@ def generate_random_number():
     random_number = random.randint(1, 100)
     return jsonify({'random_number': random_number})
 
+import os  # 在文件最顶部加上这一行
+
+# ... 你的其他代码 ...
+
 if __name__ == '__main__':
-    # 把 5000 改成 5001 或其他数字
-    port = int(os.environ.get("PORT", 5001)) 
+    # 获取服务器分配的端口，如果没有（比如在本地），则默认使用 5000
+    port = int(os.environ.get("PORT", 5000))
+    # 这里的 0.0.0.0 让外部网络可以访问它
     app.run(host='0.0.0.0', port=port)
