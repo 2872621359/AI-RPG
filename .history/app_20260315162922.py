@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory
 import os
-import random
 
 app = Flask(__name__)
 
@@ -36,19 +35,19 @@ def chatpage():
     card = request.args.get('card')
     if card == '1':
         content = {
-            "image_path": "/static/images/characterimage1.png",
+            "image_path": "../images/characterimage1.png",
             "description": "This is card 1"
         }
         return render_template('chatpage-1227-try1.html', card=card, content=content)
-    elif card == '2':
+    elif card == '2':x
         content = {
-            "image_path": "/static/images/characterimage2.png",
+            "image_path": "../images/characterimage2.png",
             "description": "This is card 2"
         }
         return render_template('chatpage-1227-try1.html', card=card, content=content)
     elif card == '3':
         content = {
-            "image_path": "/static/images/characterimage3.png",
+            "image_path": "../images/characterimage3.png",
             "description": "This is card 3"
         }
         return render_template('chatpage-1227-try1.html', card=card, content=content)
@@ -84,6 +83,8 @@ def gamestart():
 def generate_random_number():
     random_number = random.randint(1, 100)
     return jsonify({'random_number': random_number})
+
+app = Flask(__name__)
 
 if __name__ == '__main__':
     # 把 5000 改成 5001 或其他数字

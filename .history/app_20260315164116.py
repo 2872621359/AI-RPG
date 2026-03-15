@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory
 import os
-import random
 
 app = Flask(__name__)
 
@@ -85,7 +84,13 @@ def generate_random_number():
     random_number = random.randint(1, 100)
     return jsonify({'random_number': random_number})
 
+app = Flask(__name__)
+
 if __name__ == '__main__':
     # 把 5000 改成 5001 或其他数字
     port = int(os.environ.get("PORT", 5001)) 
     app.run(host='0.0.0.0', port=port)
+
+if __name__ == '__main__':
+    # 加上 debug=True
+    app.run(host='0.0.0.0', port=5001, debug=True)

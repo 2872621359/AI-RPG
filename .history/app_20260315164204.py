@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory
 import os
-import random
 
 app = Flask(__name__)
 
@@ -36,19 +35,19 @@ def chatpage():
     card = request.args.get('card')
     if card == '1':
         content = {
-            "image_path": "/static/images/characterimage1.png",
+            "image_path": "../images/characterimage1.png",
             "description": "This is card 1"
         }
         return render_template('chatpage-1227-try1.html', card=card, content=content)
     elif card == '2':
         content = {
-            "image_path": "/static/images/characterimage2.png",
+            "image_path": "../images/characterimage2.png",
             "description": "This is card 2"
         }
         return render_template('chatpage-1227-try1.html', card=card, content=content)
     elif card == '3':
         content = {
-            "image_path": "/static/images/characterimage3.png",
+            "image_path": "../images/characterimage3.png",
             "description": "This is card 3"
         }
         return render_template('chatpage-1227-try1.html', card=card, content=content)
@@ -86,6 +85,4 @@ def generate_random_number():
     return jsonify({'random_number': random_number})
 
 if __name__ == '__main__':
-    # 把 5000 改成 5001 或其他数字
-    port = int(os.environ.get("PORT", 5001)) 
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
