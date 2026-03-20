@@ -56,24 +56,24 @@ def chatpage():
         return render_template('chatpage-1227-try1.html')
     #return render_template('chatpage-1227-try1.html')
 
-# @app.route('/ask', methods=['POST'])
-# def ask():
-#     data = request.get_json()
-#     question = data.get('question')
-#     if not question:
-#         return jsonify({'answer': 'Question is missing.'}), 400
-#     # 处理逻辑
-#     if question == "你是谁？这里发生了什么事？":
-#         answer = "哈哈，你很快就会知道的，跟随我的指引来吧。"
-#     elif question == "酒保，这个小镇最近不太平，让我想到了我那边的泰国发生的事。":
-#         answer = "酒保（沙哑的声音）：“咱这儿啊，最近老是有奇怪的声音，一到夜里，那动静就跟有什么东西在暗处窥视似的。你要是不想像那星星在泰国似的没了踪影，最好赶紧离开这儿。”"
-#     elif question == "失踪那天你见过他吗":
-#         answer = "嗯，那天晚上，他抱着一本书走向公墓，月光洒在他身上，像个吟游诗人。"
-#     elif question == "听说道格拉斯他常在这读书":
-#         answer = "嗯，他常坐在那块墓碑上看书。不过，有些事你们还是别深究的好。"
-#     else:
-#         answer = "您做出了超纲行为。"
-#     return jsonify({'answer': answer})
+@app.route('/ask', methods=['POST'])
+def ask():
+    data = request.get_json()
+    question = data.get('question')
+    if not question:
+        return jsonify({'answer': 'Question is missing.'}), 400
+    # 处理逻辑
+    if question == "你是谁？这里发生了什么事？":
+        answer = "哈哈，你很快就会知道的，跟随我的指引来吧。"
+    elif question == "酒保，这个小镇最近不太平，让我想到了我那边的泰国发生的事。":
+        answer = "酒保（沙哑的声音）：“咱这儿啊，最近老是有奇怪的声音，一到夜里，那动静就跟有什么东西在暗处窥视似的。你要是不想像那星星在泰国似的没了踪影，最好赶紧离开这儿。”"
+    elif question == "失踪那天你见过他吗":
+        answer = "嗯，那天晚上，他抱着一本书走向公墓，月光洒在他身上，像个吟游诗人。"
+    elif question == "听说道格拉斯他常在这读书":
+        answer = "嗯，他常坐在那块墓碑上看书。不过，有些事你们还是别深究的好。"
+    else:
+        answer = "您做出了超纲行为。"
+    return jsonify({'answer': answer})
 
 @app.route('/gamestart', methods=['GET'])
 def gamestart():
